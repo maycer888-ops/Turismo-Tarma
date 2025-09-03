@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Turismo en Tarma</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom right, #f0fff0, #dff5e3);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(90deg, #2e8b57, #3cb371);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        nav.categorias {
+            background: #ffffff;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.categorias button {
+            background: linear-gradient(145deg, #2e8b57, #3cb371);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        nav.categorias button:hover {
+            background: #1f6b44;
+            transform: scale(1.05);
+        }
+
+        .container {
+            padding: 30px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .lugar {
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .lugar:hover {
+            transform: scale(1.02);
+        }
+
+        .lugar h2 {
+            color: #2e8b57;
+            font-size: 1.8em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        .mapa-link {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 18px;
+            background: #ffb400;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .mapa-link:hover {
+            background: #e09b00;
+        }
+
+        .lugar img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css"
+</head>
+<body>
+
+    <header>
+        <h1>Turismo en Tarma, Perú</h1>
+        <p>Descubre los principales atractivos turísticos de la Perla de los Andes</p>
+    </header>
+    <div class="buscador-contenedor">
+    <button id="mostrarBuscador" title="Buscar">
+        🔍
+    </button>
+    <input type="text" id="buscador" placeholder="Buscar lugares turísticos..." oninput="buscarLugares()" class="hidden">
+    <script src="script.js"></script>
+</div>
+
+    <!-- CATEGORÍAS DE TURISMO -->
+    <nav class="categorias">
+        <button onclick="filtrarLugares('todos')">Todos los lugares turísticos</button>
+        <button onclick="filtrarLugares('populares')">Lugares turísticos populares</button>
+        <button onclick="filtrarLugares('poco-conocidos')">Lugares turísticos poco conocidos</button>
+        <button onclick="filtrarLugares('naturales')">Sitios naturales</button>
+        <button onclick="filtrarLugares('historicos')">Lugares históricos</button>
+        <button onclick="filtrarLugares('comunidades')">Pueblos y comunidades</button>
+        <button onclick="filtrarLugares('arqueologicos')">Sitios Arqueologicos</button>
+        <button onclick="filtrarLugares('leyendas')">Leyendas y Mitos</button>
+        <button onclick="filtrarLugares('tradiciones')">Tradiciones y Costumbres</button>
+    </nav>
+
+    <div class="container">
+
+        <div class="lugar populares historicos comunidades" id="catedral">
+            <img src="img/catedral.jpg" alt="Catedral de Tarma">
+            <h2>Catedral de Tarma</h2>
+            <p>Ubicada en el corazón de la ciudad, esta majestuosa catedral refleja la herencia colonial de Tarma. Su arquitectura neoclásica y su importancia religiosa la convierten en un punto de encuentro espiritual y cultural para locales y visitantes.</p>
+            <a href="https://maps.app.goo.gl/1dXnUE3patPrL5cD6" target="_blank" class="mapa-link">Ver en Google Maps</a>
+        </div>
+
+        <div class="lugar naturales arqueologicos leyendas" id="huagapo">
+            <img src="img/gruta.jpg" alt="Gruta de Huagapo">
+            <h2>Gruta de Huagapo</h2>
+            <p>Conocida como la “Boca del Diablo”, esta gruta misteriosa se extiende por kilómetros bajo tierra. Atrae tanto a aventureros como a científicos debido a sus profundidades inexploradas, estalactitas brillantes y riachuelos subterráneos. ¡Ideal para los amantes de la naturaleza!</p>
+            <a href="https://maps.app.goo.gl/vto2Lbu6vaeYrbYA7" target="_blank" class="mapa-link">Ver en Google Maps</a>
+        </div>
+
+        <div class="lugar populares comunidades historicos tradiciones" id="muruhuay">
+            <img src="img/santuario.jpg" alt="Santuario del Señor de Muruhuay">
+            <h2>Santuario del Señor de Muruhuay</h2>
+            <p>Este santuario, situado en el distrito de Acobamba, es un centro de devoción que cada año recibe a miles de peregrinos. Rodeado de montañas y tradición, el templo ofrece una experiencia espiritual única combinada con la belleza natural de la región.</p>
+            <a href="https://maps.app.goo.gl/PEK4mc7LFW927uZX8" target="_blank" class="mapa-link">Ver en Google Maps</a>
+        </div>
+
+        <div class="lugar poco-conocidos historicos comunidades arqueologicos tradiciones" id="tarmatambo">
+            <img src="img/tarmatambo.webp" alt="Tarmatambo">
+            <h2>Tarmatambo</h2>
+            <p>Este complejo arqueológico preincaico alberga estructuras de piedra y barro, plazas ceremoniales, y una extensa red de canales. Antiguamente fue un importante centro administrativo. Pese a su valor histórico, aún es poco explorado por el turismo masivo.</p>
+            <a href="https://maps.app.goo.gl/2QSM3bLZYj14WZGC7" target="_blank" class="mapa-link">Ver en Google Maps</a>
+        </div>
+
+        <div class="lugar poco-conocidos" id="mirador">
+            <img src="img/mirador.jpg" alt="Mirador San Cristobal">
+            <h2>Mirador San Cristobal</h2>
+            <p>Este mirador ofrece una vista panorámica impresionante de la ciudad de Tarma y sus alrededores andinos. Perfecto para fotografiar el amanecer o atardecer, y respirar aire puro en un ambiente tranquilo y elevado.</p>
+            <a href="https://maps.app.goo.gl/cffLMq3hY8s7Uv9V6" target="_blank" class="mapa-link">Ver en Google Maps</a>
+        </div>
+
+        <div class="lugar naturales" id="nahuimpuquio">
+            <img src="img/pampa.webp" alt="Laguna de Ñahuimpuquio">
+            <h2>Santuario Nacional Pampa Hermosa</h2>
+            <p>Este lugar posee más de 10 cataratas que pueden ser visitados por turistas, locales, nacionales y extranjeros, su principal funcion es cuidar y reservar las zonas naturales.</p>
+            <a href="https://maps.app.goo.gl/TxM3zdji2Ca8D6tR7" target="_blank" class="mapa-link">Ver en Google Maps</a>
+        </div>
+
+        <div class="lugar populares naturales comunidades leyendas" id="paca">
+            <img src="img/paca.webp" alt="Laguna de Paca">
+            <h2>Laguna de Paca</h2>
+            <p>Esta laguna, ubicada en Jauja, es famosa por sus leyendas y belleza paisajística. Los visitantes pueden disfrutar de paseos en bote y degustar truchas frescas en los restaurantes aledaños.</p>
+            <a href="https://maps.app.goo.gl/grivX63rYs1cSGrj9?g_st=ac" target="_blank" class="mapa-link">Ver en Google Maps</a>
+        </div>
+
+    </div>
+
+    <script>
+        function filtrarLugares(categoria) {
+            const lugares = document.querySelectorAll('.lugar');
+
+            lugares.forEach(lugar => {
+                if (categoria === 'todos') {
+                    lugar.classList.remove('hidden');
+                } else if (lugar.classList.contains(categoria)) {
+                    lugar.classList.remove('hidden');
+                } else {
+                    lugar.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

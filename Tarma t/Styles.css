@@ -1,0 +1,41 @@
+.buscador-contenedor {
+    position: absolute;
+    top: 35px;
+    right: 30px;
+}
+
+#mostrarBuscador {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+#mostrarBuscador:hover {
+    transform: scale(1.2);
+}
+
+#buscador {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: block;
+    width: 250px;
+}
+
+@media (max-width: 600px) {
+    #buscador {
+        width: 180px;
+    }
+
+    .buscador-contenedor {
+        top: 25px;
+        right: 15px;
+    }
+}
